@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,4 +26,6 @@ public class Student {
     private Integer age;
     @Column(name = "status")
     private boolean active;
+    @Column(name = "admission_date")
+    private Timestamp startDate;
 }

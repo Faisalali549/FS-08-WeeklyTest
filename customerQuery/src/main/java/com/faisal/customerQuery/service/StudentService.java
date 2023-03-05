@@ -17,7 +17,24 @@ public class StudentService {
         return students;
     }
 
-    public List<Student> findAllStudent() {
+    public List<Student> findAllStudent(boolean active) {
         return repository.findByActive(true);
+    }
+
+    public List<Student> findByFirstNameAndLastName(String firstName, String lastName) {
+        return repository.findByFirstNameAndLastName(firstName, lastName);
+    }
+
+    public Student findDistinctByLastNameAndFirstName(String lastName, String firstName) {
+        return repository.findDistinctByLastNameAndFirstName(lastName, firstName);
+    }
+
+    public List<Student> findByAgeLessThan(int age) {
+        return repository.findByAgeLessThan(age);
+    }
+
+    public int saveStudent(Student student) {
+        Student student1 = repository.save(student);
+        return student1.getId();
     }
 }
