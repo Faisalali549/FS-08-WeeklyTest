@@ -1,6 +1,7 @@
 package com.example.studentPortal.controller;
 
 import com.example.studentPortal.model.Laptop;
+import com.example.studentPortal.model.Student;
 import com.example.studentPortal.service.LaptopService;
 import jakarta.annotation.Nullable;
 import org.json.JSONArray;
@@ -11,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/student")
+@RequestMapping("api/v1/studentPortal")
 public class LaptopController {
     @Autowired
     LaptopService laptopService;
@@ -19,7 +20,7 @@ public class LaptopController {
     @PostMapping("/laptop")
     public ResponseEntity saveLaptop(@RequestBody String laptopData) {
         Laptop laptop = setLaptop(laptopData);
-        String Id = laptopService.saveLaptop(laptop);
+        int Id = laptopService.saveLaptop(laptop);
         return new ResponseEntity("laptop saved with id-" +Id, HttpStatus.CREATED);
     }
     @GetMapping(value = "/laptop")
@@ -42,7 +43,6 @@ public class LaptopController {
     private Laptop setLaptop(String  laptopData) {
         JSONObject object = new JSONObject(laptopData);
         Laptop laptop = new Laptop();
-        laptop.setId(object.getString("Id"));
         laptop.setName(object.getString("name"));
         laptop.setBrand(object.getString("brand"));
         laptop.setPrice(object.getString("price"));

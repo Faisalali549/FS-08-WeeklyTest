@@ -14,7 +14,7 @@ import java.util.List;
 public class StudentService {
     @Autowired
     StudentRepository repository;
-    public String saveStudent(Student student) {
+    public int saveStudent(Student student) {
         Student student1 = repository.save(student);
         return student1.getId();
     }

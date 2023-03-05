@@ -15,7 +15,7 @@ public class CourseService {
     @Autowired
     CourseRepository courseRepository;
 
-    public String saveCourse(Course course) {
+    public int saveCourse(Course course) {
         Course course1 = courseRepository.save(course);
         return course1.getId();
     }
@@ -39,7 +39,6 @@ public class CourseService {
 
     private JSONObject setCourse(Course course) {
         JSONObject object = new JSONObject();
-        object.put("Id", course.getId());
         object.put("title", course.getTitle());
         object.put("description", course.getDescription());
         object.put("duration", course.getDuration());

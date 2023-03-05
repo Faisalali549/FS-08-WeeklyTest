@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Id;
+    private int Id;
     private String name;
     private String age;
     private String phoneNumber;
@@ -21,5 +21,6 @@ public class Student {
     private String department;
 
     @Embedded
+
     private Address address;
 }

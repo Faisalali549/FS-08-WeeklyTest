@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/student-portal")
+@RequestMapping("api/v1/studentPortal")
 public class StudentController {
     @Autowired
     StudentService service;
@@ -20,7 +20,7 @@ public class StudentController {
     @PostMapping(value = "/student")
     public ResponseEntity saveUser(@RequestBody String studentData) {
         Student student = setStudent(studentData);
-        String Id = service.saveStudent(student);
+        int Id = service.saveStudent(student);
         return new ResponseEntity("user saved with id-" +Id, HttpStatus.CREATED);
     }
     @GetMapping(value = "/student")

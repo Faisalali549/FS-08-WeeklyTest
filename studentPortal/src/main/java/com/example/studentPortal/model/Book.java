@@ -14,7 +14,7 @@ import org.hibernate.boot.registry.selector.spi.StrategyCreator;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Id;
+    private int Id;
     private String title;
     private String author;
     private String description;

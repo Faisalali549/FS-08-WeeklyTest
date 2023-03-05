@@ -14,7 +14,7 @@ public class LaptopService {
     @Autowired
     LaptopRepository laptopRepository;
 
-    public String saveLaptop(Laptop laptop) {
+    public int saveLaptop(Laptop laptop) {
         Laptop laptop1 = laptopRepository.save(laptop);
         return laptop1.getId();
     }

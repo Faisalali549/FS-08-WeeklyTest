@@ -14,7 +14,7 @@ import java.util.List;
 public class BookService {
     @Autowired
     BookRepository bookRepository;
-    public String saveBook(Book book) {
+    public int saveBook(Book book) {
         Book book1 = bookRepository.save(book);
         return book1.getId();
     }
@@ -38,7 +38,6 @@ public class BookService {
 
     private JSONObject setBook(Book book) {
         JSONObject object = new JSONObject();
-        object.put("Id", book.getId());
         object.put("title", book.getTitle());
         object.put("author", book.getAuthor());
         object.put("description", book.getDescription());

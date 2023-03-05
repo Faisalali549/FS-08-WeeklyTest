@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 public class Laptop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Id;
+    private int Id;
 
     private String name;
     private String brand;
     private String price;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Student student;
 }

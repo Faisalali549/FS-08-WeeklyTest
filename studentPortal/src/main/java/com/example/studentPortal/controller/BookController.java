@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/student")
+@RequestMapping("api/v1/studentPortal")
 public class BookController {
     @Autowired
     BookService bookService;
@@ -19,7 +19,7 @@ public class BookController {
     @PostMapping(value = "/book")
     public ResponseEntity saveBook(@RequestBody String bookData) {
         Book book = setBook(bookData);
-        String Id = bookService.saveBook(book);
+        int Id = bookService.saveBook(book);
         return new ResponseEntity("book saved" + Id, HttpStatus.CREATED);
     }
 
@@ -45,7 +45,6 @@ public class BookController {
     private Book setBook(String bookData) {
         JSONObject object = new JSONObject(bookData);
         Book book = new Book();
-        book.setId(object.getString("Id"));
         book.setTitle(object.getString("title"));
         book.setAuthor(object.getString("title"));
         book.setDescription(object.getString("description"));

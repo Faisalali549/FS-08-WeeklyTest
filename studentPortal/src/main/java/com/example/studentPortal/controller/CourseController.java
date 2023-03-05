@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/student")
+@RequestMapping("api/v1/studentPortal")
 public class CourseController {
     @Autowired
     CourseService courseService;
@@ -19,7 +19,7 @@ public class CourseController {
     @PostMapping(value = "/course")
     public ResponseEntity saveCourse(@RequestBody String courseData) {
         Course course = setCourse(courseData);
-        String Id = courseService.saveCourse(course);
+        int Id = courseService.saveCourse(course);
         return new ResponseEntity("course saved with id-" + Id, HttpStatus.CREATED);
     }
 
@@ -44,7 +44,6 @@ public class CourseController {
     private Course setCourse(String courseData) {
         JSONObject object = new JSONObject(courseData);
         Course course = new Course();
-        course.setId(object.getString("Id"));
         course.setTitle(object.getString("title"));
         course.setDescription(object.getString("description"));
         course.setDuration(object.getString("duration"));

@@ -16,7 +16,7 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Id;
+    private int Id;
     private String title;
     private String description;
     private String duration;
